@@ -1,0 +1,25 @@
+<div class="card" style="width: 18rem;">
+	<img src="{{ hotel.image }}" alt="" class="card-img-top" width="100">
+	<div class="card-body">
+		<h5 class="card-title">
+			{{ hotel.titre }}
+		</h5>
+		<div class="card-title text-primary" style="font-weight: bold;font-size:1.5rem;">
+			{{ hotel.price | number_format(0,',', ' ') }}
+			€
+			{% if hotel.promo %}
+				<div class=" text text-warning">Promo !</div>
+			{% endif %}
+		</div>
+		<p class="text text-muted">
+			{{ hotel.contenu }}
+		</p>
+		<p class="text text-muted">
+			{% for c in hotel.category %}
+				<em class="text-muted text-primary text-italic">
+					#{{ c.name }}
+				</em>
+			{% endfor %}
+		</p>
+	</div>
+</div>
