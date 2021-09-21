@@ -3,14 +3,12 @@
 namespace App\Form;
 
 use App\Data\SearchData;
-use App\Entity\Category;
-use App\Entity\Chambres;
+use App\Entity\Hotel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
@@ -27,10 +25,10 @@ class SearchForm extends AbstractType
                     'placeholder' => 'Rechercher'
                 ]
             ])
-            ->add('category', EntityType::class, [
+            ->add('chambres', EntityType::class, [
                 'label' => false,
                 'required' => false,
-                'class' => Chambres::class,
+                'class' => Hotel::class,
                 'expanded' => true,
                 'multiple' => true
             ])
@@ -61,7 +59,7 @@ class SearchForm extends AbstractType
             'csrf_protection' => false
         ]);
     }
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return ''; // pour avoir une url la plus propre possible
     }

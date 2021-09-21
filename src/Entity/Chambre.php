@@ -2,13 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ChambresRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Repository\ChambreRepository;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ChambresRepository::class)
+ * @ORM\Entity(repositoryClass=ChambreRepository::class)
  */
 class Chambre
 {
@@ -40,7 +39,7 @@ class Chambre
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Hotel", inversedBy="chambres")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Hotel", inversedBy="chambres")
      * @ORM\JoinColumn(name="hotel_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
     private $hotel;
@@ -151,5 +150,10 @@ class Chambre
     {
         $this->hotel = $hotel;
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
     }
 }

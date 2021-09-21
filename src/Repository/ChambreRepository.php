@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @method Chambre[]    findAll()
  * @method Chambre[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ChambreRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
+class ChambreRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block content %}
+
+    <a href="{{ url('admin_hotel_new') }}" class="btn btn-dark">Ajouter un hotel</a>
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <th>Titre</th>
+            <th>Lieu</th>
+            </thead>
+            <tbody>
+                {% for hotel in hotels %}
+                <tr>
+                    <td>{{ hotel.titre }}</td>
+                    <td>{{ hotel.lieu }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
+

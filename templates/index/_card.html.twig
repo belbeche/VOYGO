@@ -5,19 +5,18 @@
 			{{ hotel.titre }}
 		</h5>
 		<div class="card-title text-primary" style="font-weight: bold;font-size:1.5rem;">
-			{{ hotel.price | number_format(0,',', ' ') }}
-			€
 			{% if hotel.promo %}
 				<div class=" text text-warning">Promo !</div>
 			{% endif %}
 		</div>
 		<p class="text text-muted">
-			{{ hotel.contenu }}
+			{{ hotel.lieu }}
 		</p>
 		<p class="text text-muted">
-			{% for c in hotel.category %}
+			{% for c in hotel.chambres %}
 				<em class="text-muted text-primary text-italic">
 					#{{ c.name }}
+					{{ c.price | number_format(0,',', ' ') }}€
 				</em>
 			{% endfor %}
 		</p>

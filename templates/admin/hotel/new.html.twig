@@ -1,0 +1,32 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block content %}
+    <h3 class="text-primary">Ajouter un hotel</h3>
+    <div class="row block-form-add-category">
+        {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_widget(form.titre, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+
+        {{ form_errors(form.titre) }}
+
+        <div class="form-group">
+            {{ form_widget(form.lieu, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+
+        {{ form_errors(form.lieu) }}
+
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+
+
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock content %}
+

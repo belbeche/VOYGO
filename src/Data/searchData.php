@@ -2,28 +2,30 @@
 
 namespace App\Data;
 
-class SearchData
+use App\Entity\Chambre;
+
+class searchData
 {
     /**
      * @var string
      */
-    public $q = '';
+    public string $q = '';
 
     /**
-     * @var Category[]
+     * @var Chambre[]
      */
-    public $category = [];
+    public array $chambres = [];
     /**
      * @var null|integer
      */
-    public $max;
+    public ?int $max;
     /**
      * @var null|integer
      */
-    public $min;
+    public ?int $min;
 
     /**
      * @var boolean
      */
-    public $promo = false;
-}   
+    public bool $promo = false;
+}
