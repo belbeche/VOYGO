@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Hotel;
 use App\Form\HotelType;
-use App\Data\searchData;
+use App\Data\SearchData;
 use App\Form\SearchForm;
 use App\Repository\HotelRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +24,8 @@ class IndexController extends AbstractController
 
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
+
+
 
         /*$hotel = new Hotel();
 

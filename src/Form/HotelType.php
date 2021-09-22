@@ -49,7 +49,11 @@ class HotelType extends AbstractType
                     ],
                 ]
             )
-            ->add('chambres');
+            ->add('hotel', ChoiceType::class, [
+                'choices' => [
+                    'choice_value' => 'hotel',
+                ]
+            ]);
 
     }
 

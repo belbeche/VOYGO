@@ -4,7 +4,8 @@ namespace App\Data;
 
 use App\Entity\Chambre;
 
-class searchData
+
+class SearchData
 {
     /**
      * @var string
@@ -14,7 +15,7 @@ class searchData
     /**
      * @var Chambre[]
      */
-    public array $chambres = [];
+    public array $hotel = [];
     /**
      * @var null|integer
      */
@@ -28,4 +29,8 @@ class searchData
      * @var boolean
      */
     public bool $promo = false;
+    /**
+     * @var string|null
+     */
+    public string $image;
 }

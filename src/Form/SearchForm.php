@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Data\SearchData;
+
 use App\Entity\Hotel;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +27,7 @@ class SearchForm extends AbstractType
                     'placeholder' => 'Rechercher'
                 ]
             ])
-            ->add('chambres', EntityType::class, [
+            ->add('hotel', EntityType::class, [
                 'label' => false,
                 'required' => false,
                 'class' => Hotel::class,
@@ -49,7 +51,8 @@ class SearchForm extends AbstractType
             ->add('promo', CheckboxType::class, [
                 'label' => 'En promotion',
                 'required' => false,
-            ]);
+            ])
+        ;
     }
     public function configureOptions(OptionsResolver $resolver)
     {

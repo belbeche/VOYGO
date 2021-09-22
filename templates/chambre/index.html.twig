@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VOYGO Chambre
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="grid">
+                    {% for hotel in hotels %}
+                        {% include 'chambre/_card.html.twig' with {hotel: hotel} only %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-3">
+                {% include 'chambre/contact.html.twig' with {form: form} only %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

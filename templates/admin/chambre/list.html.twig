@@ -1,9 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title  %} {% endblock %}
 
 {% block body %}
+    <a href="{{ url('admin_chambre_new') }}" class="btn btn-dark">Ajouter une chambre</a>
 
-    Ici les annonces
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <th>Hotel réference</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Nombre de places</th>
+            <th>Prix</th>
+            </thead>
+            <tbody>
+            {% for hotel in hotels_list %}
+                <tr>
+                    <td>{{ hotel.hotel_id }}</td>
+                    <td>{{ hotel.titre }}</td>
+                    <td>{{ hotel.description }}</td>
+                    <td>{{ hotel.nb_place }}</td>
+                    <td>{{ hotel.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 {% endblock %}

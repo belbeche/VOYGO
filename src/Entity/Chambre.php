@@ -45,6 +45,11 @@ class Chambre
     private $hotel;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -155,5 +160,17 @@ class Chambre
     public function __toString()
     {
         return $this->titre;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

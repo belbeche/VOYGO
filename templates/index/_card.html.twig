@@ -1,4 +1,38 @@
-<div class="card" style="width: 18rem;">
+<div class="latest-products">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-heading">
+					<h2>{{  hotel.titre }}</h2>
+					<p class="text text-muted">
+						{% for chambre in hotel.chambres %}
+							<em class="text-muted text-primary text-italic">
+								#{{ chambre.titre }}
+								{{ chambre.price | number_format(0,',', ' ') }}€
+							</em>
+							<a href="{{ path('front_chambre',{'id': chambre.id}) }}" <i class="fa fa-angle-right"></i>>Voir Hotel </a>
+						{% endfor %}
+					</p>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="product-item">
+					<a href="{{ hotel.image }}"><img src="{{ hotel.image }}" alt=""></a>
+					<div class="down-content">
+						<small>
+							<strong title="Available"><i class="fa fa-calendar"></i> {{ hotel.lieu }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+							<strong title="Nights"><i class="fa fa-cube"></i> {% for c in hotel.chambres %} {{ c.nbplace }} {% endfor %}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+							<strong title="Flight included"><i class="fa fa-plane"></i>vol inclus </strong>
+						</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{#  <div class="card" style="width: 18rem;">
 	<img src="{{ hotel.image }}" alt="" class="card-img-top" width="100">
 	<div class="card-body">
 		<h5 class="card-title">
@@ -13,12 +47,15 @@
 			{{ hotel.lieu }}
 		</p>
 		<p class="text text-muted">
-			{% for c in hotel.chambres %}
+			{% for chambre in hotel.chambres %}
 				<em class="text-muted text-primary text-italic">
-					#{{ c.name }}
-					{{ c.price | number_format(0,',', ' ') }}€
+					#{{ chambre.titre }}
+					{{ chambre.price | number_format(0,',', ' ') }}€
 				</em>
+				<a href="{{ path('front_chambre',{'id': chambre.id}) }}">Voir Hotel</a>
 			{% endfor %}
 		</p>
 	</div>
 </div>
+#}
+
